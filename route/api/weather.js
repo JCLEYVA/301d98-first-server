@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
   try {
     let lat = req.query.lat;
     let lon = req.query.lon;
-    let url = `https://api.weatherbit.io/v2.0/current?key=${process.env.WEATHERBIT_API}&lat=${lat}&lon=${lon}`;
+    let url = `http://api.weatherbit.io/v2.0/current?key=${process.env.WEATHERBIT_API}&lat=${lat}&lon=${lon}`;
 
     let weatherData = await axios.get(url)
       .then((response) => {

@@ -1,4 +1,3 @@
-
 'use strict';
 
 require('dotenv').config();
@@ -14,6 +13,7 @@ const app = express();
 app.use(cors());
 
 app.get('/weather', weatherAPI.getCurrentWeather);
+
 app.get('/forecast', weatherAPI.getForecastWeather);
 app.get('/movie', getMovie);
 
@@ -22,4 +22,4 @@ app.get('*', (req, res) => {
   res.send('What you requested is not existed...');
 });
 
-app.listen(process.env.PORT || 3001);
+app.listen(process.env.PORT || 3002);

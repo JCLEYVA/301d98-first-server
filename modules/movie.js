@@ -4,7 +4,7 @@ let cache = require('./cache.js');
 
 function getMovie(city) {
   const key = 'weather-' + city;
-  let url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.TMDB_API_KEY}&query=${city}&language=en-US&page=1`;
+  let url = `http://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_DB_API_KEY}&query=${city}&language=en-US&page=1`;
 
   const movieCasheTime = 1000 * 60 * 60 * 12;
   if (cache[key] && (Date.now() - cache[key].timestamp < movieCasheTime)) {

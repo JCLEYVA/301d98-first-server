@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
   try {
     let city = req.query.city;
 
-    let url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.TMDB_API_KEY}&query=${city}&language=en-US&page=1`;
+    let url = `http://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_DB_API_KEY}&query=${city}&language=en-US&page=1`;
 
     let movieData = await axios.get(url)
       .then((res) => {

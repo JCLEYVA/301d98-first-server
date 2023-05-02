@@ -9,7 +9,8 @@ const getCurrentWeather = async (req, res) => {
 
     const weatherData = await axios.get(url)
       .then((res) => {
-        return res.data;
+        res.status(200).send(weatherData.data);
+        console.log('axios weather data', weatherData.data);
       })
       .catch((error) => {
         console.log(error.message);
@@ -33,7 +34,7 @@ const getForecastWeather = async (req, res) => {
   try {
     const lat = req.query.lat;
     const lon = req.query.lon;
-    const url = `https://api.weatherbit.io/v2.0/forecast/daily?key=${process.env.WEATHERBIT_API}&lat=${lat}&lon=${lon}`;
+    const url = `http://api.weatherbit.io/v2.0/forecast/daily?key=${process.env.WEATHERBIT_API}&lat=${lat}&lon=${lon}`;
 
     const weatherForecastData = await axios.get(url)
       .then((res) => {
